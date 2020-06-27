@@ -1,0 +1,123 @@
+\documentclass[12pt]{article}%
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]%
+{geometry}
+\usepackage{times}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{changepage}
+\usepackage{amssymb}
+\usepackage{graphicx}%
+\setcounter{MaxMatrixCols}{30}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+
+\title{ECON 21020 92 Econometrics}
+\author{Xinxiang Liu}
+\date{\today}
+\maketitle
+
+
+\section{Question 1}
+a)  The variance of X is 560 and the variance of Y is 569.\par
+\vspace{5mm} %5mm vertical space
+
+\noindent b)  Proposed estimator:
+\begin{eqnarray*}
+t = \frac{(\bar{Y}-\bar{X})-(\mu_Y-\mu_X)}{\sqrt[]{\frac{s_Y^2}{n_Y}+\frac{s_X^2}{n_X}}
+} = \frac{(569 - 560) - 0}{\sqrt[]{\frac{569}{44}+\frac{560}{46}}
+} \approx 1.796
+\end{eqnarray*} 
+\vspace{5mm} %5mm vertical space
+
+\noindent c) $H_0$: $\mu_Y$ - $\mu_X$ = 0 \par
+\vspace{5mm} %5mm vertical space
+\noindent\                        \                        \ $H_A$: $\mu_Y$ - $\mu_X$ > 0\par
+\setlength{\leftskip}{0pt}
+\vspace{5mm} %5mm vertical space
+\noindent d) At $\alpha$ = 5\%, \[df = \frac{(\frac{s_X^2}{n_X}+\frac{s_Y^2}{n_Y})^2}{\frac{(\frac{s_X^2}{n_X})^2}{n_X-1}+\frac{(\frac{s_Y^2}{n_Y})^2}{n_Y-1}}\approx 88\]
+\[t*\approx 1.66 < t-statistic\]\par
+Therefore, we reject the Null hypothesis. \par
+\vspace{5mm} %5mm vertical space
+
+\noindent e) Let P(ID) = 1 - P($\bar{ID}$) = probability of spam filter identifying an email as spam; \par
+\vspace{5mm} %5mm vertical space
+\noindent\                        \                        \  P(S) = 1 - P($\bar{S}$) = probability of any given email being spam\par
+\vspace{5mm} %5mm vertical space
+\noindent\                        \                        \  We know from the problem statement that P(ID) = 2000/5000 = 0.4\par
+\vspace{5mm} %5mm vertical space
+\noindent\                        \                        \  From Bayes' Theorem we also know that P(S,ID) = 0.9P(ID) and \\
+\[0.05=\frac{P(\bar{S},ID)}{P(\bar{S})}=\frac{(P(ID)-P(S,ID)}{(1-P(S)}=\frac{0.1P(ID)}{1-P(S)}=\frac{0.04}{1-P(S)}\]\par
+\noindent\                        \                        \ Therefore, P(S) = 0.2.
+
+
+\section{Question 2}
+\begin{flalign*}
+a)\hspace{5pt}&VAR(X-Y) = \mathbb{E}[(X-Y)^2] -\mathbb{E}[X-Y]^2 &&\\
+&= \mathbb{E}[X^2-2XY+Y^2] - \mathbb{E}[X-Y]^2  &&\\
+&= \mathbb{E}[X^2] - 2\mathbb{E}[XY] + \mathbb{E}[Y^2] - (\mathbb{E}[X] - \mathbb{E}[Y)]^2 &&\\
+&= \mathbb{E}[X^2] - 2\mathbb{E}[XY] + \mathbb{E}[Y^2] - \mathbb{E}[X]^2 + \mathbb{E}[Y]^2 - 2\mathbb{E}[X]\mathbb{E}[Y]&&\\
+&=(\mathbb{E}[X^2] - \mathbb{E}[X]^2) + (\mathbb{E}[Y^2] - \mathbb{E}[Y]^2) - 2(\mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y])&&\\
+&=VAR[X] + VAR[Y] - 2Cov[X,Y] &&\\
+\end{flalign*}
+\begin{flalign*}
+b)\hspace{5pt}&\mathbb{E}[X] = \mu_X, \hspace{5pt}\mathbb{E}[Y] = \mu_Y &&\\
+&\leadsto \mathbb{E}[a+bX] = a+b\mu_X,\hspace{5pt} \mathbb{E}[c+dY] = c+d\mu_Y &&\\
+&\leadsto (a+bx) - \mathbb{E}[a+bX] = b(x=\mu_X),\hspace{5pt} (c+dy) - \mathbb{E}[c+dY] = d(y-\mu_Y) &&\\
+\end{flalign*}
+\begin{flalign*}
+\hspace{26pt}\leadsto Cov(a+bX,\hspace{2pt}c+dY) &= \sum_{x}\sum_{y}[b(x-\mu_X)][d(y-\mu_Y)]p(x,y)&&\\
+&= bd\sum_{x}\sum_{y}(x-\mu_X)(y-\mu_Y)p(x,y)&&\\
+&=bdCov(X,Y)&&\\
+\end{flalign*}
+c)\hspace{5pt}Using Law of Iterated Expectations, where $\mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]$, we can derive that $\mathbb{E}[Y] = c$.\par
+\noindent\                        \                   \          \ Therefore, X and Y are mean-independent given that $\mathbb{E}[Y] = \mathbb{E}[Y|X] = c$\\
+\vspace{5mm}\\d)\[Cov(X,Y) = \mathbb{E}[(X-\mu_X)(Y-\mu_Y)]\]
+\[= \mathbb{E}[XY-\mu_XY-X\mu_Y+\mu_X\mu_Y]\]
+\[= \mathbb{E}[XY]-\mu_X\mathbb{E}(Y)-\mathbb{E}(X)\mu_Y+\mu_X\mu_Y\]
+\[=\mathbb{E}[XY]-\mu_X\mu_Y\]
+\[=\mathbb{E}[X]\mathbb{E}[Y]-\mu_X\mu_Y = 0\] \\
+\begin{flalign*}
+e)\hspace{5pt} Let\hspace{5pt}g(x) &= \mathbb{E}[Y|X=x]&&\\
+\leadsto\mathbb{E}[g(X)] &= \int_{\infty}^{-\infty} g(x)f_X(x) dx &&\\
+&=\int_{\infty}^{-\infty} \mathbb{E}[Y|X=x]f_X(x) dx &&\\
+&=\int_{\infty}^{-\infty}(\int_{\infty}^{-\infty} y\frac{f_X_Y(x,y)}{f_X(x)}dy)f_X(x)dx &&\\
+&=\int_{\infty}^{-\infty}\int_{\infty}^{-\infty}yf_X_Y(x,y)dydx &&\\
+&=\int_{\infty}^{-\infty}y(\int_{\infty}^{-\infty}f_X_Y(x,y)dx)dy &&\\
+&=\int_{\infty}^{-\infty}yf_Y(y)dy=\mathbb{E}[Y] &&\\
+\end{flalign*}
+
+\section{Question 3}
+
+
+
+\end{document}
